@@ -2,16 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppModuleShared } from './app.shared.module';
 import { AppComponent } from './components/app/app.component';
-import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
     bootstrap: [ AppComponent ],
     imports: [
         BrowserModule,
-        AppModuleShared,
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyDWxmhHmW4jsDGsWmbhlbVghqv3UngCBaI'
-        })
+        AppModuleShared
+
     ],
     providers: [
         { provide: 'BASE_URL', useFactory: getBaseUrl }

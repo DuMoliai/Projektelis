@@ -17,33 +17,11 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="%40angular\**" />
+    <Content Remove="%40angular\**" />
     <Content Remove="ClientApp\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="%40angular\compiler-cli\node_modules\minimist\package.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="%40angular\compiler-cli\node_modules\minimist\.travis.yml" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\example\parse.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\index.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\LICENSE" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\readme.markdown" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\all_bool.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\bool.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\dash.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\default_bool.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\dotted.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\kv_short.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\long.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\num.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\parse.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\parse_modified.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\short.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\stop_early.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\unknown.js" />
-    <None Include="%40angular\compiler-cli\node_modules\minimist\test\whitespace.js" />
+    <EmbeddedResource Remove="%40angular\**" />
+    <None Remove="%40angular\**" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
