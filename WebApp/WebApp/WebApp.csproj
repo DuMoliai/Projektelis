@@ -18,10 +18,18 @@
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
     <Compile Remove="%40angular\**" />
+    <Compile Remove="bin\**" />
+    <Compile Remove="obj\**" />
     <Content Remove="%40angular\**" />
+    <Content Remove="bin\**" />
     <Content Remove="ClientApp\**" />
+    <Content Remove="obj\**" />
     <EmbeddedResource Remove="%40angular\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="obj\**" />
     <None Remove="%40angular\**" />
+    <None Remove="bin\**" />
+    <None Remove="obj\**" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
