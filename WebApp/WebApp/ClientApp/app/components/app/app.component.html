@@ -25,6 +25,13 @@
                     </agm-info-window>
                 </agm-marker>
             </agm-map>
+            <div class="panel-body">
+                <form>
+                    <label>Location Name </label>
+                    <input type="text" [(ngModel)]="markerName" name="markerName" />
+                    <input type="Submit" value="Map it!" />
+                </form>
+            </div>
         </div>
     </div>
 </div>

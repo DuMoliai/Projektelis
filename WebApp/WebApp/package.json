@@ -64,6 +64,8 @@
   },
   "dependencies": {
     "@agm/core": "file:node_modules/@agm/core",
-    "agm-direction": "^0.5.2"
+    "@types/mongodb": "^3.0.15",
+    "agm-direction": "^0.5.2",
+    "mongodb": "^3.0.7"
   }
 }

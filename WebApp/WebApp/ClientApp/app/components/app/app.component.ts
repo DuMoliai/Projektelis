@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
     //Zoom level
     zoom: number = 10;
+
+    markerName: string;
     //Map Position
     title: string = 'My map';
     lat: number = 54.8985207;
@@ -30,12 +32,17 @@ export class AppComponent {
 
     mapClicked($event: any) {
         var newMarker = {
-            name: 'Untiled',
+            name: this.markerName,
             lat: $event.coords.lat,
             lng: $event.coords.lng,
             draggable: false
         }
-        this.markers.push(newMarker);
+        if (newMarker.name != null) {
+            this.markers.push(newMarker);
+        }
+        else {
+            console.log('error');
+        }
     }
 
 
@@ -43,7 +50,16 @@ export class AppComponent {
         console.log('Clicked Marker:' + marker.name + 'at index' + index);
 
     }
+    addMarker($event: any) {
 
+        var newMarker = {
+            name: this.markerName,
+            lat: $event.coords.lat,
+            lng: $event.coords.lng,
+            draggable: false
+        }
+        this.markers.push(newMarker);
+    }
 }
 interface marker {
     name?: string;
