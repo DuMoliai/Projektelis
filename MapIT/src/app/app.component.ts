@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { firestore } from 'firebase';
 import { FirebaseDatabase } from '@firebase/database-types';
-import { FirebaseDatabase } from '@firebase/database-types';
-import { FirebaseDatabase } from '@firebase/database-types';
-import { FirebaseDatabase } from '@firebase/database-types';
-import { FirebaseDatabase } from '@firebase/database-types';
-import { FirebaseDatabase } from '@firebase/database-types';
-import { FirebaseDatabase } from '@firebase/database-types';
 
 @Component({
   selector: 'lsl-root',

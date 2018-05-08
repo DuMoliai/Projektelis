@@ -19,10 +19,10 @@ export class GeoService {
    }
 
    /// Adds GeoFire data to database
-   setLocation(key:string, coords: Array<number>) {
+   setLocation(key: string, coords: Array<number>) {
      this.geoFire.set(key, coords)
          .then(_ => console.log('location updated'))
-         .catch(err => console.log(err))
+         .catch(err => console.log(err));
    }
 
 
@@ -34,15 +34,15 @@ export class GeoService {
       radius: radius
     })
     .on('key_entered', (key, location, distance) => {
-      let hit = {
+      const hit = {
         location: location,
         distance: distance
-      }
+      };
 
-      let currentHits = this.hits.value
-      currentHits.push(hit)
-      this.hits.next(currentHits)
-    })
+      const currentHits = this.hits.value;
+      currentHits.push(hit);
+      this.hits.next(currentHits);
+    });
    }
 
 }
