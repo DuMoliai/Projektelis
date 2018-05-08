@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { firestore } from 'firebase';
 import { FirebaseDatabase } from '@firebase/database-types';
+import { MarkerService } from './services/marker.service';
+import { Marker } from '@agm/core/services/google-maps-types';
+
 
 @Component({
   selector: 'lsl-root',
@@ -28,7 +31,7 @@ export class AppComponent {
         }
     ];
 
-    constructor() {
+    constructor(private geo: MarkerService) {
 
     }
 
@@ -41,6 +44,7 @@ export class AppComponent {
         }
         if (newMarker.name != null) {
             this.markers.push(newMarker);
+            this.geo.setLocation(name, [this.lat, this.lng]);
         } else {
             console.log('error');
         }
@@ -61,6 +65,7 @@ export class AppComponent {
             draggable: false
         };
         this.markers.push(newMarker);
+        this.geo.setLocation(name, [this.lat, this.lng]);
 
     }
 }
