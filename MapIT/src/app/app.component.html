@@ -72,11 +72,13 @@
         <div class="container-fluid">
             <!-- Page Heading -->
             <div class="row" id="main" >
-                <div class="col-sm-12 col-md-12 well" id="content">
-                    <h1>Map It!</h1>
+                <div class="col-sm-12 col-md-12 well" id="content">                    
+                    <h1>Map it!</h1>
                     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+                        <li class="items">{{items}}
                         <agm-marker *ngFor="let m of markers; let i = index" [markerClickable]="true" (markerClick)="clickedMarker(m, i)" [latitude]="m.lat"
-                            [longitude]="m.lng" [markerDraggable]="m.draggable" (drageEnd)="markerDragEnd(m, $event)">
+                            [longitude]="m.lng" [markerDraggable]="m.draggable" (drageEnd)="markerDragEnd(m, $event)"
+                            >
                             <agm-info-window>
                                 <strong>{{m.name}}</strong>
                             </agm-info-window>

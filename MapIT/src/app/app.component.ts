@@ -24,21 +24,20 @@ export class AppComponent implements OnInit {
     lng = 23.90359650000005;
 
     // Marker
-    markers: marker[] = [
+    markers: marker[];
+    itemsRef: AngularFireList<marker>;
+    items: Observable<marker[]>;
 
-        {
-            name: 'asdvs',
-            lat: 60.8985207,
-            lng: 80.90359650000005,
-            draggable: false
-        }
-    ];
-    itemsRef: AngularFireList<any>;
-    items: Observable<any[]>;
-
-    constructor(private db: AngularFireDatabase) { 
+    constructor(private db: AngularFireDatabase) {
         this.itemsRef = db.list('Markers');
         this.items = this.itemsRef.valueChanges();
+        this.getItems().subscribe(items => {
+           // console.log(items);
+           this.markers = items;
+        });
+    }
+    getItems() {
+        return this.items;
     }
 
     ngOnInit() {
