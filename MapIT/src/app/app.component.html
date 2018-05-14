@@ -75,12 +75,14 @@
                 <div class="col-sm-12 col-md-12 well" id="content">                    
                     <h1>Map it!</h1>
                     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
-                        <li class="items">{{items}}
                         <agm-marker *ngFor="let m of markers; let i = index" [markerClickable]="true" (markerClick)="clickedMarker(m, i)" [latitude]="m.lat"
                             [longitude]="m.lng" [markerDraggable]="m.draggable" (drageEnd)="markerDragEnd(m, $event)"
+                            
                             >
                             <agm-info-window>
                                 <strong>{{m.name}}</strong>
+                                <p>{{m.description}}</p>
+                                <p>Marker expiration date:{{m.expDate}}</p>
                             </agm-info-window>
                         </agm-marker>
                     </agm-map>
@@ -88,9 +90,14 @@
                         <form>
                             <label>Location Name </label>
                             <input type="text" [(ngModel)]="markerName" name="markerName" />
+                            <label>Description </label>
+                            <input type="text" [(ngModel)]="description" name="description" />
+                            <label>Expiration Date </label>
+                            <input type="text" [(ngModel)]="expDate" name="expDate" />
                             <input type="Submit" value="Map it!" />
                         </form>
                     </div>
+                    
                 </div>
             </div>
             <!-- /.row -->

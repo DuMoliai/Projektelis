@@ -18,6 +18,8 @@ export class AppComponent implements OnInit {
 
 
     markerName: string;
+    expDate: Date;
+    description: string;
     // Map Position
     title = 'My map';
     lat = 54.8985207;
@@ -48,6 +50,8 @@ export class AppComponent implements OnInit {
     mapClicked($event: any) {
         const newMarker = {
             name: this.markerName,
+            description: this.description,
+            expDate: this.expDate,
             lat: $event.coords.lat,
             lng: $event.coords.lng,
             draggable: false
@@ -70,6 +74,8 @@ export class AppComponent implements OnInit {
 
         const newMarker = {
             name: this.markerName,
+            description: this.description,
+            expDate: this.expDate,
             lat: $event.coords.lat,
             lng: $event.coords.lng,
             draggable: false
@@ -80,6 +86,8 @@ export class AppComponent implements OnInit {
 }
 interface marker {
     name?: string;
+    description: string;
+    expDate?: Date;
     lat: number;
     lng: number;
     draggable: boolean;
