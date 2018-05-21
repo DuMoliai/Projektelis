@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import {AngularFireAuth} from 'angularfire2/auth';
 import {Observable} from 'rxjs/observable';
 import { Marker } from '@agm/core/services/google-maps-types';
-declare var firebase: any;
+import { AuthService } from './shared/auth.service';
+import * as firebase from 'firebase/app';
+
 
 
 @Component({
@@ -13,6 +16,8 @@ declare var firebase: any;
 export class AppComponent implements OnInit {
     // Zoom level
     zoom = 10;
+
+    user = null;
 
     PagesMarker: Observable<any[]>;
 
@@ -30,13 +35,20 @@ export class AppComponent implements OnInit {
     itemsRef: AngularFireList<marker>;
     items: Observable<marker[]>;
 
-    constructor(private db: AngularFireDatabase) {
+    constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
         this.itemsRef = db.list('Markers');
         this.items = this.itemsRef.valueChanges();
         this.getItems().subscribe(items => {
            // console.log(items);
            this.markers = items;
         });
+    }
+    login()
+    {
+        this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider);
+    }
+    logout(){
+        this.afAuth.auth.signOut();
     }
     getItems() {
         return this.items;

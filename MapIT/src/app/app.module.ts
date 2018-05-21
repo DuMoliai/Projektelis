@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
+import { AngularFireAuthModule} from 'angularfire2/auth';
+import { AuthService } from './shared/auth.service';
 
 import { NavMenuComponent } from '../navmenu/navmenu.component';
 import { HomeComponent } from '../home/home.component';
@@ -29,6 +31,7 @@ import { MarkersComponent } from './components/markers/markers.component';
     CommonModule,
     HttpModule,
     FormsModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AgmCoreModule.forRoot({
