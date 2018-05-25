@@ -95,6 +95,19 @@ export class AppComponent implements OnInit {
         this.markers.push(newMarker);
 
     }
+    removeMarker(marker){
+        console.log('Removing marker');
+        console.log('markeris');
+        console.log(marker);
+        //var markr = JSON.parse(JSON.stringify(marker));
+        for(var i =0;i<this.markers.length;i++){
+          if(marker.lat == this.markers[i].lat && marker.lng == this.markers[i].lng){
+            this.markers.splice(i,1);
+          }
+       }
+      this.itemsRef.remove(JSON.stringify(marker));
+      }
+
 }
 interface marker {
     name?: string;

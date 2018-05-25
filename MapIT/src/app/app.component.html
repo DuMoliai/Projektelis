@@ -65,10 +65,11 @@
             <strong>{{m.name}}</strong>
             <p>{{m.description}}</p>
             <p>Marker expiration date:{{m.expDate}}</p>
+            <a class="delete" (click)="removeMarker(m)">Delete</a>
         </agm-info-window>
     </agm-marker>
 </agm-map>
-<div class="panel-body">
+<div class="panel-body black-background black">
     <form>
         <label>Location Name </label>
         <input type="text" [(ngModel)]="markerName" name="markerName" />
