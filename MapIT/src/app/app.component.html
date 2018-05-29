@@ -40,7 +40,7 @@
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" name="searchName">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
@@ -76,7 +76,7 @@
         <label>Description </label>
         <input type="text" [(ngModel)]="description" name="description" />
         <label>Expiration Date </label>
-        <input type="text" [(ngModel)]="expDate" name="expDate" />
+        <input type="date" [(ngModel)]="expDate" name="expDate" />
         <input type="Submit" value="Map it!" />
     </form>
 </div>

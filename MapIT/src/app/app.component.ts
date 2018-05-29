@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
     markerName: string;
     expDate: Date;
     description: string;
+    searchName: string;
     // Map Position
     title = 'My map';
     lat = 54.8985207;
@@ -53,10 +54,10 @@ export class AppComponent implements OnInit {
     getItems() {
         return this.items;
     }
-
     ngOnInit() {
 
     }
+
 
 
     mapClicked($event: any) {
