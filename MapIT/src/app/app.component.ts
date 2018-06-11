@@ -37,13 +37,23 @@ export class AppComponent implements OnInit {
     items: Observable<marker[]>;
 
     constructor(private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
-        this.itemsRef = db.list('Markers');
-        this.items = this.itemsRef.valueChanges();
+        this.itemsRef = db.list('/Markers');
+        this.items = this.itemsRef.snapshotChanges().map(changes => {
+            return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+        });
+     //   this.items = this.itemsRef.valueChanges();
         this.getItems().subscribe(items => {
-           // console.log(items);
+         //   console.log(items);
            this.markers = items;
         });
+    //    this.items = this.itemsRef.snapshotChanges().map(changes => {
+     //       return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+      //  });
     }
+    delete(key: string): void {
+        console.log(key);
+        this.itemsRef.remove(key);
+      }
     login()
     {
         this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider);

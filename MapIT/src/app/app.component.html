@@ -65,7 +65,7 @@
             <strong>{{m.name}}</strong>
             <p>{{m.description}}</p>
             <p>Marker expiration date:{{m.expDate}}</p>
-            <a class="delete" (click)="removeMarker(m)">Delete</a>
+            <a class="delete" (click)="delete(m.key)">Delete</a>
         </agm-info-window>
     </agm-marker>
 </agm-map>
